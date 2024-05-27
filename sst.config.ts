@@ -5,12 +5,10 @@ export default $config({
       name: "saturn-notes-sst",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
-      providers: { aws: true },
+      providers: { aws: {} },
     };
   },
   async run() {
-    new sst.aws.StaticSite("StaticSite", {
-      path: "site"
-    });
+    new sst.aws.StaticSite("StaticSite");
   },
 });
